@@ -1,0 +1,42 @@
+@import '../../../../assets/scss/variables.scss';
+
+.modal-header {
+  // background: $general;
+
+  h4,
+  .close {
+    // color: $white;
+    text-decoration: unset;
+  }
+}
+
+.modal-footer {
+  .btn {
+    background: $accent;
+    border: unset;
+    color: $white;
+    padding: 0.3rem 1rem;
+    border: 1px solid $accent;
+
+    &.cancel{
+      background: none;
+      color: #000;
+      border: 1px solid #999;
+    }
+  }
+}
+
+.modal-body{
+  p{
+    font-style: italic;
+  }
+  h6{
+
+  }
+  .value{
+    margin-bottom: 10px;
+    float: left;
+    width: 100%;
+    font-weight:300;
+  }
+}

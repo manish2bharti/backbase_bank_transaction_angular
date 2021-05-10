@@ -1,0 +1,47 @@
+@import "~bootstrap/scss/bootstrap";
+
+html {
+  background-image: url("../imgs/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body {
+  margin: 0;
+  padding-bottom: 50px;
+  background-color: unset;
+  font-family: 'Kanit', sans-serif;
+}
+
+@media screen and (max-width: 600px) {
+  .nav .dropdown-menu.show {
+    display: block;
+    left: -140px !important;
+  }
+
+  .card {
+    margin-top: 25px;
+  }
+
+  main {
+    margin-top: 0 !important;
+  }
+
+  .sortBy {
+    display: none;
+  }
+
+  .buttons {
+    width: 100%;
+    padding-left: 45px;
+  }
+
+  .display-none-sm {
+    display: none !important;
+  }
+
+  .lists .child {
+    height: 100px !important;
+  }
+}

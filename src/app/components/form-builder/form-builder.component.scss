@@ -1,0 +1,143 @@
+@import '../../../assets/scss/variables.scss';
+
+.form-generator {
+  label {
+    font-size: 16px;
+  }
+
+  .search-clear {
+    position: absolute;
+    right: 5px;
+    top: -7px;
+    bottom: 0;
+    height: 24px;
+    margin: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #373733;
+  }
+
+  .form-control:disabled,
+  .form-control[readonly] {
+    cursor: not-allowed;
+    background: #eee;
+  }
+
+  .has-error {
+    color: #f44336;
+  }
+
+  .has-error input,
+  .has-error select.form-control {
+    border-bottom: 2px solid #f44336;
+  }
+
+  .currency{
+    position: absolute;
+    top: 33px;
+    left: 1px;
+    font-size: 18px;
+    background: #eee;
+    padding: 5px 10px 4px;
+    border-radius: 5px 0 0 5px;
+    color: #888;
+    border-right: 1px solid #d4d4d4;
+  }
+
+  input.amount{
+    padding-left: 40px;
+  }
+  input{
+    &::-webkit-input-placeholder { /* Edge */
+      font-style: italic;
+    }
+    
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      font-style: italic;
+    }
+    
+    &::placeholder {
+      font-style: italic;
+    }
+  }
+
+  input,
+  select.form-control,
+  .form-control:disabled,
+  .form-control[readonly] {
+    color: $grey;
+    font-weight: 300;
+    border: 1px solid $grey-light;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+
+  input,
+  select.form-control {
+    background: transparent;
+    border: none;
+    padding: unset;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid $grey-light;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+
+  input:focus,
+  select.form-control:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .form-control::placeholder {
+    color: #999;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+  }
+
+  .col-sm-12 {
+    padding: unset;
+  }
+
+  .submit .btn {
+    background-color: $accent;
+    padding: 0.3rem 1rem;
+    border: unset;
+    text-transform: capitalize;
+  }
+
+  .card-footer {
+    background-color: unset;
+    border-top: unset;
+    padding: 25px 0 10px 0;
+
+    .btn {
+      margin-right: -15px;
+    }
+  }
+
+  .btn-group>.btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .btn-outline-primary {
+    color: #373737;
+    border: 1px solid #d4d4d4;
+    font-size: .75rem;
+  }
+
+  .show>.btn-outline-primary.dropdown-toggle,
+  .btn-outline-primary:hover {
+    background-color: $general;
+    color: $white;
+  }
+
+  .buttons {
+    margin-right: 15px;
+  }
+}

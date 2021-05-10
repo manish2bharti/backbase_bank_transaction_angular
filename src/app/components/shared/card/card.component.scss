@@ -1,0 +1,44 @@
+@import '../../../../assets/scss/variables.scss';
+
+.card {
+  border: unset;
+  border-radius: 15px;
+
+  img {
+    position: absolute;
+    left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .card-header {
+    font-size: 1.2rem;
+    height: 50px;
+    font-weight: 300;
+    color: $white;
+    text-align: center;
+    border-radius: unset;
+    background-color: $general;
+    padding: 0.45rem 1.25rem;
+    border-bottom: unset;
+    display: table;
+    border-radius: 15px 15px 0 0;
+    span{
+      float:left;
+      padding-left: 15px;
+    }
+    span.icon{
+      padding-left: 0;
+      margin-top: 2px;
+      span{
+        padding-left: 0;
+      }
+    }
+  }
+
+  .child {
+    display: table-cell;
+    vertical-align: middle;
+    // padding-left: 20px;
+  }
+}

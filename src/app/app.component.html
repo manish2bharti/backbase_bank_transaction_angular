@@ -1,0 +1,39 @@
+<header>
+  <app-logo></app-logo>
+</header>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col col-sm-12 col-md-4">
+        <app-card title="Make Transfer" icon="transfer">
+          <app-form-builder
+            card-content
+            [formObject]="formInputsObject"
+            [formErrors]="formErrors"
+            [retreiveInfo]="retreiveTransfer.asObservable()"
+            [showSubmitBtn]="true"
+            [formModel]="formModel"
+            (onSaveEvent)="onSubmit($event)"
+          ></app-form-builder>
+        </app-card>
+      </div>
+      <div class="col col-sm-12 col-md-8">
+        <app-card title="Transaction List" icon="transaction">
+          <div card-content>
+            <app-form-builder
+              [formObject]="filterInputsObject"
+              [showSubmitBtn]="false"
+              [formModel]="filterModel"
+              (onSaveEvent)="onFilter($event)"
+            ></app-form-builder>
+
+            <app-transaction-item
+              [transactions]="normalizedTransactions"
+            ></app-transaction-item>
+          </div>
+        </app-card>
+      </div>
+    </div>
+  </div>
+</main>
+<app-footer></app-footer>

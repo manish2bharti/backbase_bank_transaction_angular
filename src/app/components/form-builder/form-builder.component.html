@@ -1,0 +1,96 @@
+<form [formGroup]="formGroup" class="form-generator">
+  <div class="row">
+    <ng-container  *ngFor="let formElement of formObject; let elementIndex = index" >
+      <div class="col-sm-12 form-group" *ngIf="formElement.type == 'input'"
+        [ngClass]="displayFieldCss(formGroup, formElement.key, elementIndex)" >
+        <label [for]="formElement.key">{{formElement.label}}</label>
+        <span class="currency" *ngIf="formElement.key == 'amount'"><i class="fas fa-euro-sign"></i> </span>
+        <input
+          type="number"
+          class="form-control {{formElement.key}}"
+          [id]="formElement.key"
+          [name]="formElement.type"
+          (ngModelChange)="inputValidationRegister($event, formElement.key)"
+          [placeholder]="formElement.placeholder"
+          [(ngModel)]="formModel[formElement.key]"
+          [formControlName]="formElement.key"
+          [readOnly]="formElement.disabled"
+        />
+      </div>
+
+      <div class="col-sm-12 form-group" *ngIf="formElement.type == 'select'"
+        [ngClass]="displayFieldCss(formGroup, formElement.key, elementIndex)" >
+        <label [for]="formElement.key">{{ formElement.label}}</label>
+        <select
+          class="form-control"
+          [id]="formElement.key"
+          [attr.disabled]="formElement.disabled ? 'disabled' : null"
+          [formControlName]="formElement.key"
+          [(ngModel)]="formModel[formElement.key]"
+          (ngModelChange)="selectValidationRegister($event, formElement.key)"
+        >
+          <option *ngFor="let item of formElement.options" [ngValue]="item">
+            {{ item.merchant.name }}
+            <span *ngIf="formElement.key === 'fromAccount'">- &euro;  {{ balance }}</span>
+          </option>
+        </select>
+      </div>
+
+      <div class="col-sm-12 col-md-5" *ngIf="formElement.type == 'searchable'">
+        <div class="form-group" style="margin-top: -10px">
+          <input
+            type="text"
+            class="form-control"
+            [name]="formElement.type"
+            placeholder="{{ formElement.placeholder }}"
+            [(ngModel)]="formModel[formElement.key]"
+            [formControlName]="formElement.key"
+            [readOnly]="formElement.disabled"
+            (input)="onSubmit()"
+          />
+          <span (click)="onClearInput(formElement.key)" *ngIf="formModel[formElement.key]" class="material-icons search-clear">
+            close
+          </span>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-7" *ngIf="formElement.type == 'buttons'">
+        <div class="row" style="text-align: right">
+
+          <div class="col col-sm-12 col-md-12">
+            {{ formElement.label}}
+            <div class="btn-group buttons">
+              <div class="btn-group" ngbDropdown role="group" *ngFor="let item of formElement.options" >
+                <button class="btn btn-outline-primary" ngbDropdownToggle>
+                  {{ item.key }}
+                </button>
+                <div class="dropdown-menu" ngbDropdownMenu>
+                  <button ngbDropdownItem (click)="onFilterBy(item.key, 'asc')">
+                    ASC
+                  </button>
+                  <button ngbDropdownItem (click)="onFilterBy(item.key, 'desc')" >
+                    DESC
+                  </button>
+                  <button ngbDropdownItem (click)="onFilterBy(item.key, 'none')" >
+                    NONE
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <span *ngIf="overdraft" style="color: #ec7030">
+      {{ formObject[0].options[0].merchant.name }}
+      {{ 'balance status'}} {{ (500 + balance).toFixed(2) }}
+    </span>
+  </div>
+
+  <div *ngIf="showSubmitBtn" class="card-footer text-right submit">
+    <button type="submit" class="btn btn-info greenButton" (click)="onSubmit()">
+      {{ 'submit'}}
+    </button>
+  </div>
+</form>

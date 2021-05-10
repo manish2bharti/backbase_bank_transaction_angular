@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{'Review Transfer'}}</h4>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('dismiss')"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p>Are you ready to send out this transfer?</p>
+
+  <h6>It will be send to accounr:</h6>
+  <span class="value">{{ payment.merchant.name }}</span>
+
+  <h6>With the amount of:</h6>
+  <span class="value"><i class="fas fa-euro-sign"></i> {{payment.transaction.amountCurrency.amount.toFixed(2) }}</span>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark cancel" (click)="activeModal.dismiss('dismiss')">
+    {{ 'Close'}}
+  </button>
+  <button type="button" class="btn btn-outline-dark" (click)="onTransfer()">
+    {{ 'Send Transfer'}}
+  </button>
+</div>

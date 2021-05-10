@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-header">
+    <div class="child">
+      <span class="icon" [ngSwitch]="true">
+        <span class="" *ngSwitchCase="this.icon == 'transfer'">
+          <i class="far fa-credit-card"></i>
+        </span>
+        <span class="sign" *ngSwitchCase="this.icon == 'transaction'">
+          <i class="fas fa-list"></i>
+        </span>
+      </span>
+      <span>{{ cardName }}</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="container">
+      <ng-content select="[card-content]"></ng-content>
+    </div>
+  </div>
+</div>

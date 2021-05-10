@@ -1,0 +1,46 @@
+@import '../../../../assets/scss/variables.scss';
+
+.nav {
+  background-color: white;
+  border-bottom: 2px solid $accent;
+  padding: 15px 0;
+
+  img {
+    height: 25px;
+  }
+
+  .btn-group>.btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .btn-outline-primary {
+    color: #373737;
+    border: unset;
+    font-size: .75rem;
+  }
+
+  .btn {
+    padding: unset;
+  }
+
+  .show>.btn-outline-primary.dropdown-toggle,
+  .btn-outline-primary:hover {
+    background-color: unset;
+    color: black;
+  }
+
+  .dropdown-toggle::after {
+    content: unset;
+  }
+
+  .active-lang {
+    border-radius: 100%;
+    display: block;
+    height: 5px;
+    width: 5px;
+    background: green;
+  }
+}

@@ -1,0 +1,30 @@
+@import '../../../assets/scss/variables.scss';
+
+.lists {
+  color: #373737;
+  margin-top: 10px;
+
+  strong {
+    font-weight: 500;
+  }
+
+  .child {
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    height: 68px;
+    margin-top: -2px;
+  }
+
+  .row:last-child {
+    border-bottom: 1px solid $grey-light;
+  }
+
+  .row.list-wrap {
+    border-bottom: 1px solid $grey-light;
+    // border-top: 2px solid #D6D2CE;
+    padding: 10px 0;
+    float: left;
+    width: 100%;
+  }
+}
